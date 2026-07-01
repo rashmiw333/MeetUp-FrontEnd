@@ -4,12 +4,10 @@ import useFetch from "../data/useFetch.js";
 
 const EventDetails = () => {
 
-  const { data, loading, error } = useFetch(`http://localhost:3000/events`,[]);
+  const { data, loading, error } = useFetch(`https://meet-up-backend-six.vercel.app/events`,[]);
   const { eventId } = useParams();
-   //console.log(eventId,"eventID");
 
    const event = data?.find((event) => event._id === eventId);
-   //console.log(data);
 
   
     if (loading) {

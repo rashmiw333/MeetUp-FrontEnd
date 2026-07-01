@@ -7,7 +7,7 @@ const App = () => {
   const [search, setSearch] = useState("");
   const [type, setType] = useState("eventType");
 
-  const { data, loading, error } = useFetch( "http://localhost:3000/events",[]);
+  const { data, loading, error } = useFetch( "https://meet-up-backend-six.vercel.app/events",[]);
 
   const filteredEvents = data?.filter((event) => {
     if (type !== "eventType" && event.eventType.toLowerCase() !== type.toLowerCase()) {
