@@ -4,7 +4,7 @@ const EventCard = ({ event }) => {
   return (
     <div className="col-md-4 mb-4">
 
-      <div className="card h-100">
+      <div className="card h-100 d-flex flex-column">
 
         <img
           src={event.eventImage}
@@ -13,7 +13,7 @@ const EventCard = ({ event }) => {
           style={{ height: "220px", objectFit: "cover" }}
         />
 
-        <div className="card-body d-flex flex-column">
+        <div className="card-body d-flex flex-column justify-content-between">
 
           <span className="badge bg-light text-dark">
             {event.eventType} Event
@@ -23,10 +23,10 @@ const EventCard = ({ event }) => {
             {event.eventDate}
           </p>
 
-          <h4 className="mt-3">{event.title}</h4>
+          <h4 className="mt-1">{event.title}</h4>
 
-        <div className="mt-auto">
-           <Link to={`/events/${event.id}`} className="btn btn-primary">View Details</Link>
+        <div>
+           <Link to={`/events/${event._id}`} className="btn btn-primary">View Details</Link>
         </div>
 
         </div>

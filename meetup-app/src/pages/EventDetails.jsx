@@ -1,11 +1,33 @@
 import { useParams, Link } from "react-router-dom";
 import Header from "../components/Header.jsx";
-import events from "../data/event.js";
+import useFetch from "../data/useFetch.js";
 
 const EventDetails = () => {
-  const { eventId } = useParams();
 
-  const event = events.find((event) => event.id == eventId);
+  const { data, loading, error } = useFetch(`http://localhost:3000/events`,[]);
+  const { eventId } = useParams();
+   //console.log(eventId,"eventID");
+
+   const event = data?.find((event) => event._id === eventId);
+   //console.log(data);
+
+  
+    if (loading) {
+      return (
+      <div className="container mt-5">
+      <h3>Loading...</h3>
+      </div>
+    );
+  }
+
+    if (error) {
+      return (
+      <div className="container mt-5">
+      <h3>{error}</h3>
+      </div>
+    );
+  }
+
 
   if (!event) {
     return (
