@@ -4,6 +4,7 @@ import useFetch from "../data/useFetch.js";
 
 const EventDetails = () => {
 
+
   const { data, loading, error } = useFetch(`https://meet-up-backend-six.vercel.app/events`,[]);
   const { eventId } = useParams();
 
@@ -107,10 +108,6 @@ const EventDetails = () => {
               <p>
                 <strong>Price:</strong> {event.price}
               </p>
-
-              <button className="btn btn-danger">
-                RSVP
-              </button>
 
             </div>
 
